@@ -25,8 +25,8 @@
 
 ### Finish
 
-- [ ] 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다.
-- [ ] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
+- [x] 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다.
+- [x] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
   - ex) 최종 우승자: east, north
 
 ### Check Validation
@@ -36,8 +36,8 @@
 ## 프로그래밍 요구사항
 
 - [x] Car 객체 생성
-- [ ] MissionUtils 라이브러리의 Random.pickNumberInRange를 사용하여 랜덤값 가져온다.
-- [ ] Dom 선택자 지정
+- [x] MissionUtils 라이브러리의 Random.pickNumberInRange를 사용하여 랜덤값 가져온다.
+- [x] Dom 선택자 지정
 - 자동차의 이름을 입력하는 input 태그는 car-names-input id값을 가진다.
 - 자동차의 이름을 제출하는 button 태그는 car-names-submit id값을 가진다.
 - 레이싱 횟수를 입력하는 input 태그는 racing-count-input id값을 가진다.
