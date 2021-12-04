@@ -21,6 +21,8 @@ export const checkRaceCountValidation = function (input) {
     message = "error code1: 입력값이 없습니다.";
   } else if (typeof Number(input) === NaN) {
     message = "error code2: 숫자가 아닙니다.";
+  } else if (Number(input) === 0) {
+    message = "error code3: 횟수는 0보다 커야 합니다.";
   } else {
     valid = true;
   }

@@ -6,7 +6,6 @@ export default class Car {
   }
 
   move = function (min = 0, max = 9, cnt) {
-    console.log(cnt);
     for (let i = 0; i < cnt; i++) {
       const randomNum = MissionUtils.Random.pickNumberInRange(min, max);
       this.moveCount = randomNum >= 4 ? this.moveCount + 1 : this.moveCount;
