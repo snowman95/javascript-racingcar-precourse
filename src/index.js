@@ -22,10 +22,14 @@ export default class RacingGame {
   }
 
   createResultElement() {
-    this.resultElement = document.createElement("span");
-    this.resultElement.id = "racing-winners";
-    this.resultElement.innerHTML = "";
-    this.resultElement.classList.add(HIDDEN_CLASSNAME);
+    this.resultTitle = document.createElement("span");
+    this.resultTitle.innerHTML = "최종 우승자: ";
+    this.resultTitle.classList.add(HIDDEN_CLASSNAME);
+
+    this.resultText = document.createElement("span");
+    this.resultText.id = "racing-winners";
+    this.resultText.innerHTML = "";
+    this.resultText.classList.add(HIDDEN_CLASSNAME);
   }
 
   addEvent = function () {
@@ -91,9 +95,11 @@ export default class RacingGame {
         ? winner.push(car.name)
         : ""
     );
-    this.resultElement.innerHTML = `최종 우승자: ${winner.join(", ")}`;
-    this.winnerOuputElement.appendChild(this.resultElement);
-    this.resultElement.classList.remove(HIDDEN_CLASSNAME);
+    this.resultText.innerHTML = `${winner.join(", ")}`;
+    this.winnerOuputElement.appendChild(this.resultTitle);
+    this.winnerOuputElement.appendChild(this.resultText);
+    this.resultText.classList.remove(HIDDEN_CLASSNAME);
+    this.resultTitle.classList.remove(HIDDEN_CLASSNAME);
   };
 }
 
