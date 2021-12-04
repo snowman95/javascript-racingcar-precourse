@@ -1,5 +1,6 @@
 import Car from "./car.js";
 import { RACE_GAME_INPUT } from "./constants/race.js";
+import { checkNameValidation, checkRaceCountValidation } from "./tools.js";
 export default class RacingGame {
   constructor() {
     this.cars = [];
@@ -23,24 +24,32 @@ export default class RacingGame {
 
   addEvent = function () {
     this.carNameSubmitButton.addEventListener("click", (event) =>
-      this.makeCarWithName(event)
+      this.onCarNameSubmitted(event)
     );
     this.racingCountSubmitButton.addEventListener("click", (event) =>
-      this.play(event)
+      this.onRaceCountSubmitted(event)
     );
   };
 
-  makeCarWithName = function (event) {
+  onCarNameSubmitted = function (event) {
     event.preventDefault();
     const carNames = this.carNameInput.value.split(",");
+    const { valid, message } = checkNameValidation(carNames);
+    valid ? this.makeCarWithName(carNames) : alert(message);
+  };
+  makeCarWithName = function (carNames) {
     carNames.forEach((name) => this.cars.push(new Car(name)));
   };
 
-  play = function (event) {
+  onRaceCountSubmitted = function (event) {
     event.preventDefault();
-    const input = this.racingCountInput.value;
-
-    this.raceCount = Number(input);
+    const raceCount = this.racingCountInput.value;
+    const { valid, message } = checkRaceCountValidation(raceCount);
+    valid ? this.play(raceCount) : alert(message);
+    this.play(raceCount);
+  };
+  play = function (raceCount) {
+    this.raceCount = Number(raceCount);
     this.cars.forEach((car) =>
       car.move(RACE_GAME_INPUT.MIN, RACE_GAME_INPUT.MAX, this.raceCount)
     );
