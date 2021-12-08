@@ -3,19 +3,19 @@ import { RACE_GAME_INPUT } from "./constants/race.js";
 import { getMessageByErrorCode } from "./constants/validation.js";
 import { checkNameValidation, checkRaceCountValidation } from "./tools.js";
 import CarNameUI from "./ui/carNameUI.js";
-import RacingCountUI from "./ui/racingCountUi.js";
+import RaceCountUI from "./ui/raceCountUI.js";
 import WinnerOuputUI from "./ui/winnerOutputUI.js";
 
 export default class RacingGame {
   #cars;
   #carNameUI;
-  #racingCountUI;
+  #raceCountUI;
   #winnerOuputUI;
 
   constructor() {
     this.#cars = [];
     this.#carNameUI = new CarNameUI();
-    this.#racingCountUI = new RacingCountUI();
+    this.#raceCountUI = new RaceCountUI();
     this.#winnerOuputUI = new WinnerOuputUI();
   }
 
@@ -23,9 +23,7 @@ export default class RacingGame {
     this.#carNameUI.bindAction(() =>
       this.makeCarWithName(this.#carNameUI.getSplitInput())
     );
-    this.#racingCountUI.bindAction(() =>
-      this.play(this.#racingCountUI.getInput())
-    );
+    this.#raceCountUI.bindAction(() => this.play(this.#raceCountUI.getInput()));
   }
 
   makeCarWithName = function (carNames) {
@@ -35,7 +33,7 @@ export default class RacingGame {
       return;
     }
     carNames.forEach((name) => this.#cars.push(new Car(name)));
-    this.#racingCountUI.showElement();
+    this.#raceCountUI.showElement();
   };
 
   play = function (raceCount) {
