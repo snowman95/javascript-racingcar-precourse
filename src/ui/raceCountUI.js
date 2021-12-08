@@ -1,6 +1,6 @@
 import { HIDDEN_CLASSNAME } from "../constants/style.js";
 
-export default class RacingCountUI {
+export default class RaceCountUI {
   #racingCountTitle;
   #racingCountInput;
   #racingCountSubmitButton;
