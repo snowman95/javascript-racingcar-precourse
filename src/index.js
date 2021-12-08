@@ -3,7 +3,7 @@ import { RACE_GAME_INPUT } from "./constants/race.js";
 import { getMessageByErrorCode } from "./constants/validation.js";
 import { checkNameValidation, checkRaceCountValidation } from "./tools.js";
 import CarNameUI from "./ui/carNameUI.js";
-import RacingCountUI from "./ui/racingCountUi.js";
+import RacingCountUI from "./ui/racingCountUI.js";
 import WinnerOuputUI from "./ui/winnerOutputUI.js";
 
 export default class RacingGame {
